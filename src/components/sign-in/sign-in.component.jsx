@@ -1,6 +1,6 @@
 import React from 'react';
 import './sign-in.styles.scss';
-
+import FormInput from '../form-input/form-input';
 class SignIn extends React.Component {
   constructor(props) {
     super(props)
@@ -13,7 +13,7 @@ class SignIn extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    this.setState({ email : '', password : '' })
+    this.setState({ email: '', password: '' })
   }
 
   handleChange = (e) => {
@@ -22,32 +22,32 @@ class SignIn extends React.Component {
   }
 
   render() {
-    return(
+    return (
       <div className='sign-in'>
-      <h2>I already have an account</h2>
-      <span>Sign in with email and password</span>
+        <h2>I already have an account</h2>
+        <span>Sign in with email and password</span>
 
-      <form onSubmit={ this.handleSubmit }>
-        <input
-          name='email'
-          type='email'
-          value={this.state.email}
-          required
-          onChange={this.handleChange}>
-        </input>
-        <label>Email</label>
-        <input
-          name='password'
-          type='password'
-          value={this.state.password}
-          required
-          onChange={this.handleChange}>
-        </input>
-        <label>Password</label>
+        <form onSubmit={this.handleSubmit}>
+          <FormInput
+            name='email'
+            type='email'
+            value={this.state.email}
+            required
+            handleChange={this.handleChange}
+            label='Email'
+          />
+          <FormInput
+            name='password'
+            type='password'
+            value={this.state.password}
+            required
+            handleChange={this.handleChange}
+            label='Password'
+          />
 
-        <input type='submit' value='Submit Form'></input>
-      </form>
-    </div>
+          <input type='submit' value='Submit Form'></input>
+        </form>
+      </div>
     )
   }
 }
