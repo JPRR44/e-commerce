@@ -1,6 +1,7 @@
 import React from 'react';
 import './sign-in.styles.scss';
-import FormInput from '../form-input/form-input.component';
+import FormInput from '../form-input/form-input';
+import CustomButton from '../custom-button/custom-button.component';
 class SignIn extends React.Component {
   constructor(props) {
     super(props)
@@ -13,7 +14,7 @@ class SignIn extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    this.setState({ email : '', password : '' })
+    this.setState({ email: '', password: '' })
   }
 
   handleChange = (e) => {
@@ -22,32 +23,32 @@ class SignIn extends React.Component {
   }
 
   render() {
-    return(
+    return (
       <div className='sign-in'>
-      <h2>I already have an account</h2>
-      <span>Sign in with email and password</span>
+        <h2>I already have an account</h2>
+        <span>Sign in with email and password</span>
 
-      <form onSubmit={ this.handleSubmit }>
-        <FormInput
-          name='email'
-          type='email'
-          value={this.state.email}
-          required
-          handleChange={this.handleChange}
-          label='Email'
-        />
-        <FormInput
-          name='password'
-          type='password'
-          value={this.state.password}
-          required
-          handleChange={this.handleChange}
-          label='Password'
-        />
+        <form onSubmit={this.handleSubmit}>
+          <FormInput
+            name='email'
+            type='email'
+            value={this.state.email}
+            required
+            handleChange={this.handleChange}
+            label='Email'
+          />
+          <FormInput
+            name='password'
+            type='password'
+            value={this.state.password}
+            required
+            handleChange={this.handleChange}
+            label='Password'
+          />
 
-        <input type='submit' value='Submit Form'></input>
-      </form>
-    </div>
+          <CustomButton type='submit'>SIGN IN </CustomButton>
+        </form>
+      </div>
     )
   }
 }
